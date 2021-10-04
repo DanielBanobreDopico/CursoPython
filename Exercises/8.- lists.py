@@ -8,6 +8,7 @@ print(dias[:2])
 print(dias[2:])
 print(dias[:])
 print(dias[0:3:2])
+
 '''
 Ejemplo 2
 '''
@@ -16,6 +17,7 @@ dias[2:4] = ['miercoles','jueves']
 dias[4:6] += ['viernes', 'sabado']
 dias[5:7] = ['sabado','domingo']
 print(dias)
+
 '''
 Ejemplo 3
 '''

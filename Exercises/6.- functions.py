@@ -38,3 +38,16 @@ def total(subtotal):
     return subtotal + iva(subtotal)
 
 print(total(50))
+
+'''
+Ejemplo 4
+'''
+respuesta = input("¿Cuanto es 2 + 2?:")
+print(respuesta)
+print(len(respuesta))
+print(type(respuesta))
+print(respuesta + "4")
+intRespuesta = int(respuesta)
+print(type(intRespuesta))
+print(intRespuesta + 4)
+print(str(intRespuesta) + "...")
