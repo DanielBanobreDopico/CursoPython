@@ -51,3 +51,12 @@ Ejemplo 4
 numero = 5
 es_par = True if 5%2 == 0 else False
 print(es_par)
+
+'''
+Ejemplo 5
+'''
+valid_numbers = [1,3,5,6,7]
+if 5 in valid_numbers:
+    print("Ok")
+else:
+    print("Ugly number")
