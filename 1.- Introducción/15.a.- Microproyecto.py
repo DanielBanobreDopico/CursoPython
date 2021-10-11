@@ -1,8 +1,7 @@
 FILA_REFERENCIA = 4
 PRECIO_FILA_REFERENCIA = 6.0
 DECREMENTO_FILAS = 0.2
-CINE = [[False]*20]
-CINE += [[True]*20]*14
+CINE = [[True]*20 for i in range(15)]
 caja = 0.0
 
 def precio_butaca(fila):

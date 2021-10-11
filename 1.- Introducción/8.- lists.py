@@ -30,3 +30,26 @@ print(tablero[0])
 print(tablero[0][2])
 tablero[0][0] = 'O'
 print(tablero)
+
+'''
+Ejemplo 4
+Ojo con multiplicar listas: crea múltiples instancias del mismo array.
+Aclarar conceptos "referencia" frente a "copia". Puntero.
+'''
+print("Simple:")
+tablero = ["X"]*3
+print(tablero)
+tablero[1] = "O"
+print(tablero)
+
+print("Multiplica filas")
+tablero = [["X"]*3]*3
+print(tablero)
+tablero[1] = "O"
+print(tablero)
+
+print("Usando \"generador\"")
+tablero = [["X"]*3 for idx in range(3)]
+print(tablero)
+tablero[1] = "O"
+print(tablero)
