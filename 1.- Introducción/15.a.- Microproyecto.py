@@ -1,39 +1,37 @@
 FILA_REFERENCIA = 4
 PRECIO_FILA_REFERENCIA = 6.0
 DECREMENTO_FILAS = 0.2
-CINE = [[False]*20]
-CINE += [[True]*20]*14
+CINE = [[True]*20 for i in range(15)]
 caja = 0.0
 
 def precio_butaca(fila):
     return PRECIO_FILA_REFERENCIA - (abs(fila - FILA_REFERENCIA) * DECREMENTO_FILAS)
 
 def filas_libres():
-    LIBRES = []
+    libres = []
     fila_idx = 0
     for fila in CINE:
         if True in fila:
-            LIBRES += [fila_idx]
+            libres += [fila_idx]
         fila_idx += 1
-    return LIBRES
+    return libres
 
 def precios_filas_libres():
-    FILAS = filas_libres()
-    PRECIOS = []
-    for fila in FILAS:
-        PRECIOS += [precio_butaca(fila)]
-    return zip(FILAS, PRECIOS)
+    filas = filas_libres()
+    precios = []
+    for fila in filas:
+        precios += [precio_butaca(fila)]
+    return zip(filas, precios)
 
 def butacas_libres(fila):
     if fila in filas_libres():
-        LIBRES = []
+        libres = []
         butaca_idx = 0
         for butaca in CINE[fila]:
             if butaca:
-                LIBRES += [butaca_idx]
+                libres += [butaca_idx]
             butaca_idx += 1
-        PRECIOS = [precio_butaca(fila)] * len(LIBRES)
-        return zip(LIBRES, PRECIOS)
+        return libres
     else:
         print("No hay butacas libres en la fila", fila)
 
@@ -48,7 +46,7 @@ def vender_butaca(fila, butaca):
     print("Recaudación actual:", caja)
 
 def main():
-    print(filas_libres())
+    print("Filas libres:", filas_libres())
 
     fila = None
     while fila not in filas_libres():
@@ -58,7 +56,7 @@ def main():
     else:
         print("Seleccionada la fila", fila)
 
-    print(list(butacas_libres(fila)))
+    print("Butacas libres:", butacas_libres(fila))
 
     butaca = int(input("Elija una butaca en la fila: "))
 
