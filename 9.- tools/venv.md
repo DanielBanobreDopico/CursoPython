@@ -3,8 +3,10 @@
 ## Creación de venv
 ```bash
 mkdir proyecto
-python3 -m venv proyecto/venv
 cd proyecto
+python3 -m venv venv
+git init
+echo 'venv' > .gitignore
 source venv/bin/activate
 pip install django
 pip freeze > requirements.txt
