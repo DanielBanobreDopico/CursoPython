@@ -1,5 +1,5 @@
 '''
-Ejemplo 1:
+Ejemplo 1: Clases e instancias.
 '''
 class Warrior:
     life = 100
@@ -28,7 +28,7 @@ allies[0].hurt(enemies[0])
 print("Vida del enemigo num. 0:", enemies[0].life)
 
 '''
-Ejemplo 2:
+Ejemplo 2: Representaciones textuales para objetos.
 '''
 class Warrior:
     life = 100
@@ -64,7 +64,7 @@ for item in allies + enemies:
     print(repr(item))
 
 '''
-Ejemplo 3:
+Ejemplo 3: Herencia
 '''
 class Fellow:
     life = 100
@@ -103,7 +103,7 @@ print(repr(ally))
 print(repr(enemy))
 
 '''
-Ejemplo 4:
+Ejemplo 4: Autocontención
 '''
 class Fellow:
     life = 100
@@ -157,7 +157,7 @@ for guy in Fellow.instances:
 print("Vida aliados:", allies_life, "Vida enemigos:", enemies_life)
 
 '''
-Ejemplo 5:
+Ejemplo 5: Métodos heredados sobre variables de clase.
 '''
 class Fellow:
     life = 100

@@ -53,3 +53,12 @@ tablero = [["X"]*3 for idx in range(3)]
 print(tablero)
 tablero[1] = "O"
 print(tablero)
+
+'''
+Ejemplo 5
+'''
+t = 1, 2, 3, 4
+t = (1, 2, 3, 4)
+a, b, c = [1, 2, 3]
+a, b, c = (1, 2, 3)
+a, b, c = 1, 2, 3
