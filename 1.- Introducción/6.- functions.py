@@ -143,7 +143,7 @@ input("Dime algo: ")
 
 isinstance()
 issubclass()
-super()
+#super()
 
 dir([])
 len("cosa")
