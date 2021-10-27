@@ -9,12 +9,17 @@ while i < 5:
 '''
 Ejemplo 2
 '''
-vocales = []
-vocal = input("Dime una vocal: ")
-while vocal in ["a","e","i","o","u"] and vocal not in vocales:
-    vocales += [vocal]
-    if len(vocales) == 5:
-        print("Conoces todas las vocales.")
+vocales = ["a","e","i","o","u"]
+vocales_introducidas = []
+
+vocal = input("""Veamos si conoces el orden de las vocales.
+Dime una vocal: """)
+
+while vocal in vocales and vocal not in vocales_introducidas:
+    vocales_introducidas += [vocal]
+    print(vocales_introducidas)
+    if vocales_introducidas == vocales:
+        print("Conoces el orden de todas las vocales.")
         break
     vocal = input("Dime otra vocal: ")
 else:
