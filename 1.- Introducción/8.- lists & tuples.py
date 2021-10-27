@@ -14,10 +14,22 @@ print(dias[1::2])
 '''
 Ejemplo 2
 '''
+dias = ['lunes','miercoles','sábado','domingo']
+print(dias)
+
 dias[1] = 'martes'
+print(dias)
+
 dias[2:4] = ['miercoles','jueves']
+print(dias)
+
 dias[4:6] += ['viernes', 'sabado']
+print(dias)
+
 dias[5:7] = ['sabado','domingo']
+print(dias)
+
+dias[0:7] = ['Uh','Ah']*3
 print(dias)
 
 '''
