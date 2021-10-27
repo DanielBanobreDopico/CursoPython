@@ -51,7 +51,7 @@ print(tablero)
 print("Usando \"generador\"")
 tablero = [["X"]*3 for idx in range(3)]
 print(tablero)
-tablero[1] = "O"
+tablero[1][1] = "O"
 print(tablero)
 
 '''
