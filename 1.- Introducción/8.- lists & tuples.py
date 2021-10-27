@@ -8,6 +8,8 @@ print(dias[:2])
 print(dias[2:])
 print(dias[:])
 print(dias[0:3:2])
+print(dias[::2])
+print(dias[1::2])
 
 '''
 Ejemplo 2
