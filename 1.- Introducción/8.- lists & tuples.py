@@ -34,21 +34,30 @@ print(dias)
 
 '''
 Ejemplo 3
+Aclarar conceptos "referencia" frente a "copia". Puntero.
 '''
 tablero =[
     [' ','O','X'],
     ['O','X','X'],
     ['O','X','O']
 ]
-print(tablero[0])
-print(tablero[0][2])
+print(tablero)
+
+fila1 = tablero[0]
+print(fila1)
+print(fila1[1])
+
+print(tablero[0][1])
+
 tablero[0][0] = 'O'
+print(tablero)
+
+fila1[0] = 'X'
 print(tablero)
 
 '''
 Ejemplo 4
-Ojo con multiplicar listas: crea múltiples instancias del mismo array.
-Aclarar conceptos "referencia" frente a "copia". Puntero.
+Ojo con multiplicar listas: paso por referencia.
 '''
 print("Simple:")
 tablero = ["X"]*3
@@ -59,7 +68,7 @@ print(tablero)
 print("Multiplica filas")
 tablero = [["X"]*3]*3
 print(tablero)
-tablero[1] = "O"
+tablero[1][1] = "O"
 print(tablero)
 
 print("Usando \"generador\"")
