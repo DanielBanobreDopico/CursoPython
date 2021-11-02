@@ -4,17 +4,17 @@ Ejemplo 1
 monedas = 53
 
 def suma(a,b):
-    resultado = a + b
-    return resultado
+    monedas = a + b
+    return monedas
 
 r = suma(7,3)
 
-#print(monedas,a,b,resultado,r)
+print(monedas,r)
+#print(a,b)
 
 '''
 Ejemplo 2
 '''
-monedas = 53
 resultado = None
 
 def suma(a,b):
@@ -24,10 +24,11 @@ def suma(a,b):
 
 r = suma(7,3)
 
-print(monedas,resultado,r)
+print(resultado,r)
 
 '''
 Ejemplo 3
+¡A EVITAR!
 '''
 resultado = None
 
@@ -41,6 +42,7 @@ print(resultado)
 
 '''
 Ejemplo 4
+¿Porqué no funciona?
 '''
 resultado = None
 
