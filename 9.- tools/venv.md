@@ -6,7 +6,7 @@ mkdir proyecto
 cd proyecto
 python3 -m venv venv
 git init
-echo 'venv' > .gitignore
+echo 'venv' >> .gitignore
 source venv/bin/activate
 pip install django
 pip freeze > requirements.txt
