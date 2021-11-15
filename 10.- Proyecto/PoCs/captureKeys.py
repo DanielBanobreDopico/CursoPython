@@ -9,9 +9,8 @@ class Keyboard:
     handlers = {}
 
     def keyCaptureLoop(self):
-        with Input() as input_generator:
-            for key in input_generator:
-                print(repr(key))
+        with Input() as input:
+            for key in input:
                 if key in self.handlers:
                     for handler in self.handlers[key]:
                         handler(key)
