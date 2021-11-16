@@ -13,18 +13,17 @@ class Keyboard:
                         handler(key)
                 if not self.stayListening: break
 
-    def addHandler(self,keyDescriptor,callback):
-        if keyDescriptor in self.handlers:
+    def addHandlers(self,eventHandlerList):
+        # eventHandlerList is a list of tuples event/handler where event is a key representation ans handler a function or method.
+        for keyDescriptor, callback in eventHandlerList:
+            if not keyDescriptor in self.handlers: self.handlers[keyDescriptor] = []
             self.handlers[keyDescriptor].append(callback)
-        else:
-            self.handlers[keyDescriptor] = []
-            self.addHandler(keyDescriptor,callback)
 
     def stopListening(self,*arg):
         self.stayListening=False
 
     def __init__(self):
-        self.addHandler('<ESC>', self.stopListening )
+        self.addHandlers([('<ESC>', self.stopListening)])
 
 if __name__ == '__main__':
     k = Keyboard()
