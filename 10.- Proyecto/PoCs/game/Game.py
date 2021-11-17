@@ -8,7 +8,7 @@ character_callbacks = [
     ("<UP>","up"),
     ("<RIGHT>","right"),
     ("<DOWN>","down"),
-    ("<LEFT>","left")
+    ("<LEFT>","left"),
 ]
 character = Character(board,keyboard,character_callbacks)
 keyboard.keyCaptureLoop()
