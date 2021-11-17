@@ -43,14 +43,18 @@ class Character:
         Llama al método move de playground indicando un desplazamiento en los ejes x e y.
 
             Parámetros:
-                
+                x, y - Entero positivo o negativo representando desplazamiento en uno y otro eje.
         '''
         self.playground.move(self,x,y)
     def up(self, key):
+        '''Facilita un callback para llamar a self.move para el desplazamiento arriba.'''
         self.move(0,1)
     def right(self, key):
+        '''Facilita un callback para llamar a self.move para el desplazamiento a la derecha.'''
         self.move(1,0)
     def down(self, key):
+        '''Facilita un callback para llamar a self.move para el desplazamiento abajo.'''
         self.move(0,-1)
     def left(self, key):
+        '''Facilita un callback para llamar a self.move para el desplazamiento a la izquierda.'''
         self.move(-1,0)
