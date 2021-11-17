@@ -19,3 +19,7 @@ jobs:
         with:
           files: "/10.-Proyecto/PoCs/game/"
           dest: "game.zip"
+      - uses: actions/upload-artifact@v1
+        with:
+          name: my-artifact
+          path: ${{ github.workspace }}/10.-Proyecto/PoCs/game.zip
