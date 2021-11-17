@@ -24,7 +24,7 @@ class Playground:
             self.characters[character.id] = {}
             self.characters[character.id]["x"] = self.reduceDimension("x",x)
             self.characters[character.id]["y"] = self.reduceDimension("y",y)
-            #TODO: Añadir a board
+            self.board[x][y] = character
 
     def reduceDimension(self, axis, dimension):
         if axis == "x":
