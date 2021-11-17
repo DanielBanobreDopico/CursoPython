@@ -12,15 +12,14 @@ class Character:
             up, down, left, right - Métodos de conveniencia para asociar a los callback. Llaman a move con los parámetros adecuados. 
     '''
     id = str(uuid4())
-    def __init__(self, playground, keyboard, upKey, rightKey, downKey, leftKey):
+    def __init__(self, playground, keyboard, callbacks):
         '''
-        Instancia un personaje, introduciéndolo en el tablero de juego
-        e insertando sus callbacks en el controlador de teclado.
+        Instancia un personaje proporcionandole un tablero e insertando sus callbacks en el controlador de teclado.
 
             Parametros:
-                playground: Instancia de Playground
-                keyboard: Instancia de Keyboard
-                callbacks: Lista de tuplas con dos strings indicando el keycode y el método de la instancia.
+                playground - Instancia de Playground
+                keyboard - Instancia de Keyboard
+                callbacks - Lista de tuplas con dos strings indicando el keycode y el método de la instancia.
             
             Ejemplo:
                 callbacks = [
@@ -32,15 +31,11 @@ class Character:
                 character = Character(playground, keyboard, callbacks)
         '''
         self.playground = playground
-        # playground.addCharacter(self,3,2)
-        keyboard.addHandlers([
-            (upKey,self.up),
-            (rightKey,self.right),
-            (downKey,self.down),
-            (leftKey,self.left),
-            ])
+        playground.addCharacter(self)
+        true_callbacks = [ (keymap, getattr(self, callback)) for keymap, callback in callbacks ]
+        keyboard.addCallbacks(true_callbacks)
     def __repr__(self):
-        return "🚶"
+        return "  🚶 "
     def __str__(self):
         return self.__repr__()
     def move(self,x,y):

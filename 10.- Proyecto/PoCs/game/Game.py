@@ -4,5 +4,11 @@ from Keyboard import Keyboard
 
 board = Playground(5,5)
 keyboard = Keyboard()
-character = Character(board,keyboard,"<UP>","<RIGHT>","<DOWN>","<LEFT>")
+character_callbacks = [
+    ("<UP>","up"),
+    ("<RIGHT>","right"),
+    ("<DOWN>","down"),
+    ("<LEFT>","left")
+]
+character = Character(board,keyboard,character_callbacks)
 keyboard.keyCaptureLoop()
