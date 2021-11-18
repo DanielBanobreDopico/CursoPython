@@ -47,7 +47,4 @@ def version3():
         file.close()
         print("Guardada bitácora %s." % file_name)
 
-
-    
-
 version3()
