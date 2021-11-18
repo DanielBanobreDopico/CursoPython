@@ -22,7 +22,7 @@ except OdioElUno as error:
     print("Se ha producido UN error:", error)
 except OdioElSeis:
     print("Ha salido otro seis.")
-except BaseException as error:
+except Exception as error:
     print("Algo ha pasado:", error)
 
 print("Fin")    
