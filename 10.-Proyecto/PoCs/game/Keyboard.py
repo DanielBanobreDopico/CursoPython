@@ -1,30 +1,26 @@
+from platform import system
+from keyboard import on_press_key, on_release_key, unhook
 from curtsies import Input
 
+system = system() # 'Linux', 'Darwin', 'Java', 'Windows'
+
+class Cursies:
+    pass
+
 class Keyboard:
+    #keyboard.on_press_key(key, callback, suppress=False)
+    #keyboard.unhook(remove)
+    #keyboard.on_press_key(key, lambda ev: print(ev), suppress=False)
+    #keyboard.hook(lambda ev: print(ev))
+    pass
 
-    stayListening = True
-    callbacks = {}
+if system in ('Linux', 'Darwin'):
+    class KeyEvents(Cursies):
+        pass
+elif system in ('Windows'):
+    class KeyEvents(Keyboard):
+        pass
 
-    def keyCaptureLoop(self):
-        with Input() as input:
-            for key in input:
-                if key in self.callbacks:
-                    for handler in self.callbacks[key]:
-                        handler(key)
-                if not self.stayListening: break
+if __name__ == "__main__":
+    print(system)
 
-    def addCallbacks(self,eventHandlerList):
-        # eventHandlerList is a list of tuples event/handler where event is a key representation ans handler a function or method.
-        for keyDescriptor, callback in eventHandlerList:
-            if not keyDescriptor in self.callbacks: self.callbacks[keyDescriptor] = []
-            self.callbacks[keyDescriptor].append(callback)
-
-    def stopListening(self,*arg):
-        self.stayListening=False
-
-    def __init__(self):
-        self.addCallbacks([('<ESC>', self.stopListening)])
-
-if __name__ == '__main__':
-    k = Keyboard()
-    k.keyCaptureLoop()

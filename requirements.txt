@@ -1,4 +1,8 @@
 blessings==1.7
 curtsies==0.3.10
 cwcwidth==0.1.5
+evdev==1.4.0
+keyboard==0.13.5
+pynput==1.7.4
+python-xlib==0.31
 six==1.16.0
