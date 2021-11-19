@@ -19,21 +19,21 @@ class Character:
             Parametros:
                 playground - Instancia de Playground
                 keyboard - Instancia de Keyboard
-                callbacks - Lista de tuplas con dos strings indicando el keycode y el método de la instancia.
+                callbacks - Lista de tuplas con dos strings indicando el keycode segun pynput y el método de la instancia.
             
             Ejemplo:
                 callbacks = [
-                    ("<UP>","up"),
-                    ("<RIGHT>","rigth"),
-                    ("<DOWN>","down"),
-                    ("<LEFT>","left"),
+                    ("up","up"),
+                    ("right","right"),
+                    ("down","down"),
+                    ("left","left"),
                 ]
                 character = Character(playground, keyboard, callbacks)
         '''
         self.playground = playground
         playground.addCharacter(self)
         true_callbacks = [ (keymap, getattr(self, callback)) for keymap, callback in callbacks ]
-        keyboard.addCallbacks(true_callbacks)
+        keyboard.add_callbacks(true_callbacks)
     def __repr__(self):
         return "  🚶 "
     def __str__(self):
@@ -46,15 +46,15 @@ class Character:
                 x, y - Entero positivo o negativo representando desplazamiento en uno y otro eje.
         '''
         self.playground.move(self,x,y)
-    def up(self, key):
+    def up(self, key, event):
         '''Facilita un callback para llamar a self.move para el desplazamiento arriba.'''
-        self.move(0,1)
-    def right(self, key):
+        if event == "press": self.move(0,1)
+    def right(self, key, event):
         '''Facilita un callback para llamar a self.move para el desplazamiento a la derecha.'''
-        self.move(1,0)
-    def down(self, key):
+        if event == "press": self.move(1,0)
+    def down(self, key, event):
         '''Facilita un callback para llamar a self.move para el desplazamiento abajo.'''
-        self.move(0,-1)
-    def left(self, key):
+        if event == "press": self.move(0,-1)
+    def left(self, key, event):
         '''Facilita un callback para llamar a self.move para el desplazamiento a la izquierda.'''
-        self.move(-1,0)
+        if event == "press": self.move(-1,0)

@@ -5,10 +5,10 @@ from Keyboard import Keyboard
 board = Playground(5,5)
 keyboard = Keyboard()
 character_callbacks = [
-    ("<UP>","up"),
-    ("<RIGHT>","right"),
-    ("<DOWN>","down"),
-    ("<LEFT>","left"),
+    ("up","up"),
+    ("right","right"),
+    ("down","down"),
+    ("left","left"),
 ]
 character = Character(board,keyboard,character_callbacks)
-keyboard.keyCaptureLoop()
+keyboard.key_capture_loop()
