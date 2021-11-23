@@ -11,7 +11,6 @@ class Character:
             move - Hace una llamada al método mode de playground indicándole un desplazamiento para este personaje.
             up, down, left, right - Métodos de conveniencia para asociar a los callback. Llaman a move con los parámetros adecuados. 
     '''
-    id = str(uuid4())
     def __init__(self, playground, keyboard, callbacks):
         '''
         Instancia un personaje proporcionandole un tablero e insertando sus callbacks en el controlador de teclado.
@@ -30,6 +29,7 @@ class Character:
                 ]
                 character = Character(playground, keyboard, callbacks)
         '''
+        self.id = str(uuid4())
         self.playground = playground
         playground.addCharacter(self)
         true_callbacks = [ (keymap, getattr(self, callback)) for keymap, callback in callbacks ]
