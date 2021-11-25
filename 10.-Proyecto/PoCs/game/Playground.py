@@ -1,9 +1,12 @@
 from random import choice
 
 class Playground:
+
     characters = {}
+
     def __init__(self, x, y):
         self.board = [ [None]*x for row in range(y)]
+
     def move(self, character, x, y):
         if character.id in self.characters:
 
@@ -29,6 +32,13 @@ class Playground:
             for x, pos in enumerate(row):
                 if pos == None: free_positions.append((x,y))
         return free_positions
+
+    def adjacent_characters(self,character):
+        directions = ((x, y) for x in (-1,0,1) for y in (-1,0,1))
+        character_x = self.characters[character.id]["x"]
+        character_y = self.characters[character.id]["y"]
+        adjacent_positions = ({"x": self.reduceDimension("x", character_x + x), "y": self.reduceDimension("y", character_y+y)} for x, y in directions)
+        return [self.board[pos["x"]][pos["y"]] for pos in adjacent_positions if self.board[pos["x"]][pos["y"]]]
 
     def randomFreePosition(self):
         '''Return a dupla with x, y choords for a empty board position.'''
