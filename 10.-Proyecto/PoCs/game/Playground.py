@@ -12,17 +12,22 @@ class Playground:
 
             current_x = self.characters[character.id]["x"]
             current_y = self.characters[character.id]["y"]
-            self.board[current_y][current_x] = None
 
             next_x = self.reduceDimension("x", current_x + x)
             next_y = self.reduceDimension("y", current_y + y)
-            self.characters[character.id]["x"] = next_x
-            self.characters[character.id]["y"] = next_y
-            self.board[next_y][next_x] = character
+            # Is next character empty?
+            if self.board[next_y][next_x] == None:
+                self.board[current_y][current_x] = None
+                self.characters[character.id]["x"] = next_x
+                self.characters[character.id]["y"] = next_y
+                self.board[next_y][next_x] = character
+                for row in range(len(self.board)-1,-1,-1):
+                    print(self.board[row])
+                print("\n")
+            else:
+                print("Toc1")
 
-            for row in self.board:
-                print(row)
-            print("\n")
+
 
     @property
     def emptyPositions(self):
@@ -34,7 +39,7 @@ class Playground:
         return free_positions
 
     def adjacent_characters(self,character):
-        directions = ((x, y) for x in (-1,0,1) for y in (-1,0,1))
+        directions = ((x, y) for x in (-1,0,1) for y in (-1,0,1) if not (x==0 and y==0) )
         character_x = self.characters[character.id]["x"]
         character_y = self.characters[character.id]["y"]
         adjacent_positions = ({"x": self.reduceDimension("x", character_x + x), "y": self.reduceDimension("y", character_y+y)} for x, y in directions)
