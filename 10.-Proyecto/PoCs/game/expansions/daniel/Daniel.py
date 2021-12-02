@@ -19,4 +19,4 @@ class Daniel(Character):
 
     def put_in_bagpack(self, object):
         self.__bagpack.append(object)
-        print(self.__bagpack)
+        print("Mochila: %s" % self.__bagpack)

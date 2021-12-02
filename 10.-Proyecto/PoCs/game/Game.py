@@ -7,13 +7,13 @@ from expansions.daniel.Thing import Thing
 
 board = Playground(5,5)
 keyboard = Keyboard()
-character_callbacks = [
+daniel1_callbacks = [
     ("up","up"),
     ("right","right"),
     ("down","down"),
     ("left","left"),
 ]
-daniel_callbacks = [
+daniel2_callbacks = [
     ("w","up"),
     ("d","right"),
     ("s","down"),
@@ -21,8 +21,11 @@ daniel_callbacks = [
     ("space","shoot"),
     ("x","dress")
 ]
-character = Character(board,keyboard,character_callbacks)
-daniel = Daniel(board,keyboard,daniel_callbacks,'🤓')
+daniel1 = Daniel(board,keyboard,daniel1_callbacks,'😏')
+daniel2 = Daniel(board,keyboard,daniel2_callbacks,'🤓')
+
+# Engadimos unha "cousa" ó taboleiro.
 cosa = Thing("Cosa")
 board.addCharacter(cosa,(0,0))
+
 keyboard.key_capture_loop()
