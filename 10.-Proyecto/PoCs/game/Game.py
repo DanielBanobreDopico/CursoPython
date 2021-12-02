@@ -3,6 +3,7 @@ from Character import Character
 from Keyboard import Keyboard
 
 from expansions.daniel.Daniel import Daniel
+from expansions.daniel.Thing import Thing
 
 board = Playground(5,5)
 keyboard = Keyboard()
@@ -22,4 +23,6 @@ daniel_callbacks = [
 ]
 character = Character(board,keyboard,character_callbacks)
 daniel = Daniel(board,keyboard,daniel_callbacks,'🤓')
+cosa = Thing("Cosa")
+board.addCharacter(cosa,(0,0))
 keyboard.key_capture_loop()

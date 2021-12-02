@@ -1,5 +1,7 @@
 from random import choice
 
+from Character import Character
+
 class Playground:
 
     characters = {}
@@ -16,7 +18,11 @@ class Playground:
             next_x = self.reduceDimension("x", current_x + x)
             next_y = self.reduceDimension("y", current_y + y)
             # Is next character empty?
-            if self.board[next_y][next_x] == None:
+            if isinstance(self.board[next_y][next_x],(Character)):
+                 print("Toc!")
+            else:
+                if self.board[next_y][next_x] != None:
+                    character.put_in_bagpack(self.board[next_y][next_x])
                 self.board[current_y][current_x] = None
                 self.characters[character.id]["x"] = next_x
                 self.characters[character.id]["y"] = next_y
@@ -24,8 +30,7 @@ class Playground:
                 for row in range(len(self.board)-1,-1,-1):
                     print(self.board[row])
                 print("\n")
-            else:
-                print("Toc1")
+
 
 
 
