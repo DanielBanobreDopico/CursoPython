@@ -22,7 +22,7 @@ class Playground:
                  print("Toc!")
             else:
                 if self.board[next_y][next_x] != None:
-                    character.put_in_bagpack(self.board[next_y][next_x])
+                    character.put_in_backpack(self.board[next_y][next_x])
                 self.board[current_y][current_x] = None
                 self.characters[character.id]["x"] = next_x
                 self.characters[character.id]["y"] = next_y

@@ -2,7 +2,7 @@ from Character import Character
 
 class Daniel(Character):
 
-    __bagpack = []
+    __backpack = []
 
     def __init__(self, playground, keyboard, callbacks, aspecto):
         self.aspecto = aspecto
@@ -17,6 +17,6 @@ class Daniel(Character):
     def dress(self,key,event):
         self.aspecto = "🤠"
 
-    def put_in_bagpack(self, object):
-        self.__bagpack.append(object)
-        print("Mochila: %s" % self.__bagpack)
+    def put_in_backpack(self, object):
+        self.__backpack.append(object)
+        print("Mochila: %s" % self.__backpack)
