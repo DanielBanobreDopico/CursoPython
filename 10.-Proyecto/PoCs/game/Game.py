@@ -22,11 +22,13 @@ daniel2_callbacks = [
     ("space","shoot"),
     ("x","dress")
 ]
+
 Daniel(board,keyboard,daniel1_callbacks,'😏')
 Daniel(board,keyboard,daniel2_callbacks,'🤓')
-BadGuy(board,keyboard)
 
 # Engadimos unha "cousa" ó taboleiro.
 Bomb("💣",board)
 
-keyboard.key_capture_loop()
+# Personaje autónomo
+BadGuy(board,keyboard)
+

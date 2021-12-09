@@ -35,7 +35,7 @@ class Character:
         true_callbacks = [ (keymap, getattr(self, callback)) for keymap, callback in callbacks ]
         keyboard.add_callbacks(true_callbacks)
     def __repr__(self):
-        return "  🚶 "
+        return " 🚶 "
     def __str__(self):
         return self.__repr__()
     def move(self,x,y):
