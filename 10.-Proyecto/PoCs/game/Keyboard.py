@@ -1,14 +1,22 @@
+from os import name
 from pynput import keyboard
 
 class Keyboard:
 
     callbacks = {}
 
+    def __init__(self):
+        self.listener = keyboard.Listener(
+            on_press=self.call_press_callbacks,
+            on_release=self.call_release_callbacks)
+        self.listener.start()
+
     def key_capture_loop(self):
         with keyboard.Listener(
                 on_press=self.call_press_callbacks,
                 on_release=self.call_release_callbacks) as listener:
             listener.join()
+
 
     def call_callbacks(self,key_obj,event):
         key = key_obj.char if hasattr(key_obj,"char") else key_obj.name
@@ -30,9 +38,3 @@ class Keyboard:
 
     def stop_listening(self,*arg):
         self.stayListening=False
-
-    def __init__(self): pass
-
-if __name__ == '__main__':
-    k = Keyboard()
-    k.key_capture_loop()
