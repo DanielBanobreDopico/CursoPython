@@ -31,7 +31,7 @@ class Character:
         '''
         self.id = str(uuid4())
         self.playground = playground
-        playground.addCharacter(self)
+        self.playground.addCharacter(self)
         true_callbacks = [ (keymap, getattr(self, callback)) for keymap, callback in callbacks ]
         keyboard.add_callbacks(true_callbacks)
     def __repr__(self):

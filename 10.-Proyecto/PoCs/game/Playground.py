@@ -22,11 +22,13 @@ class Playground:
                  print("Toc!")
             else:
                 if self.board[next_y][next_x] != None:
-                    character.put_in_backpack(self.board[next_y][next_x])
-                self.board[current_y][current_x] = None
+                    # character.put_in_backpack(self.board[next_y][next_x])
+                    self.board[next_y][next_x].get_touched(character)
+                    self.removeCharacter(self.board[next_y][next_x])
                 self.characters[character.id]["x"] = next_x
                 self.characters[character.id]["y"] = next_y
                 self.board[next_y][next_x] = character
+                self.board[current_y][current_x] = None
                 for row in range(len(self.board)-1,-1,-1):
                     print(self.board[row])
                 print("\n")
@@ -61,6 +63,12 @@ class Playground:
             self.characters[character.id]["x"] = self.reduceDimension("x",x)
             self.characters[character.id]["y"] = self.reduceDimension("y",y)
             self.board[y][x] = character
+
+    def removeCharacter(self,character):
+        character_x = self.characters[character.id]["x"]
+        character_y = self.characters[character.id]["y"]
+        self.board[character_y][character_x] = None
+        del self.characters[character.id]
 
     def reduceDimension(self, axis, dimension):
         if axis == "x":

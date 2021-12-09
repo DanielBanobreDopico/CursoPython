@@ -1,11 +1,15 @@
 from uuid import uuid4
 
 class Thing:
-    def __init__(self, name,theme):
+    def __init__(self, theme, playground):
         self.id = str(uuid4())
-        self.__my_theme = theme
+        self.__theme = theme
+        self.playground = playground
+        self.playground.addCharacter(self)
+
+
     def __repr__(self):
-        return self.__my_theme
+        return self.__theme
     def __str__(self):
         return self.__repr__()
     def get_touched(self, character):

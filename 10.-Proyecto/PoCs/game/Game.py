@@ -3,7 +3,8 @@ from Character import Character
 from Keyboard import Keyboard
 
 from expansions.daniel.Daniel import Daniel
-from expansions.daniel.Thing import Thing
+from expansions.daniel.Bomb import Bomb
+from expansions.BadGuy import BadGuy
 
 board = Playground(5,5)
 keyboard = Keyboard()
@@ -21,11 +22,11 @@ daniel2_callbacks = [
     ("space","shoot"),
     ("x","dress")
 ]
-daniel1 = Daniel(board,keyboard,daniel1_callbacks,'😏')
-daniel2 = Daniel(board,keyboard,daniel2_callbacks,'🤓')
+Daniel(board,keyboard,daniel1_callbacks,'😏')
+Daniel(board,keyboard,daniel2_callbacks,'🤓')
+BadGuy(board,keyboard)
 
 # Engadimos unha "cousa" ó taboleiro.
-cosa = Thing("Cosa")
-board.addCharacter(cosa,(0,0))
+Bomb("💣",board)
 
 keyboard.key_capture_loop()
