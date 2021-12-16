@@ -11,7 +11,7 @@ class BadGuy(Character):
     maxMove = 1
 
     def __init__(self, playground, keyboard):
-        super().__init__(playground, keyboard, [])
+        super().__init__(playground, keyboard, [], "🤠")
         self.timer = Thread(target=self.self_move,args=(1,))
         self.timer.run()
 
