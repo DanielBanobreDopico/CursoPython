@@ -4,7 +4,8 @@ from Keyboard import Keyboard
 
 from expansions.daniel.Daniel import Daniel
 from expansions.daniel.Bomb import Bomb
-from expansions.BadGuy import BadGuy
+from expansions.daniel.BadGuy import BadGuy
+from expansions.daniel.AddBombs import AddBombs
 
 board = Playground(5,5)
 keyboard = Keyboard()
@@ -27,7 +28,8 @@ Daniel(board,keyboard,daniel1_callbacks,'😏')
 Daniel(board,keyboard,daniel2_callbacks,'🤓')
 
 # Engadimos unha "cousa" ó taboleiro.
-Bomb("💣",board)
+#Bomb("💣",board)
+AddBombs(board,Bomb)
 
 # Personaje autónomo
 BadGuy(board,keyboard)
