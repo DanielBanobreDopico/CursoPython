@@ -1,4 +1,3 @@
-from os import name
 from pynput import keyboard
 
 class Keyboard:
