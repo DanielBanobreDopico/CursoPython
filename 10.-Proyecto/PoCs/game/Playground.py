@@ -1,6 +1,9 @@
 from random import choice
+from Miguel.Utils import clearScreen
 
 from Character import Character
+
+
 
 class Playground:
 
@@ -29,6 +32,8 @@ class Playground:
                 self.characters[character.id]["y"] = next_y
                 self.board[next_y][next_x] = character
                 self.board[current_y][current_x] = None
+
+                clearScreen()
                 for row in range(len(self.board)-1,-1,-1):
                     print(self.board[row])
                 print("\n")
