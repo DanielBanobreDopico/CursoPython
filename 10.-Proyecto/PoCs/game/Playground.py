@@ -13,12 +13,12 @@ class Playground:
     def __init__(self, x, y):
         self.board = [ [None]*x for row in range(y)]
 
-    def add_threaded_object(obj):
-        #TODO: Engadir objectos con Threads e obj.stop_game a
-        #   self.threaded_objects
-        pass
+    def add_threaded_object(self, obj):
+        if hasattr(obj, "stop_game"):
+            self.threaded_objects.append(obj)
 
     def stop_game(self):
+        print("######## FIN DE XOGO #########")
         for obj in self.threaded_objects:
             obj.stop_game = True
         #TODO: Fin de xogo

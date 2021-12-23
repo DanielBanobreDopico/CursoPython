@@ -6,8 +6,6 @@ from expansions.daniel.Bomb import Bomb
 from expansions.daniel.BadGuy import BadGuy
 from expansions.daniel.AddObjectsLoop import AddObjectsLoop
 
-game_elements = []
-
 board = Playground(5,5)
 keyboard = Keyboard()
 
@@ -18,11 +16,9 @@ daniel1_callbacks = [
     ("left","left"),
 ]
 
-game_elements.append(Daniel(board,keyboard,daniel1_callbacks,'😏'))
+board.add_threaded_object(Daniel(board,keyboard,daniel1_callbacks,'😏'))
 
-game_elements.append(AddObjectsLoop(board,Bomb,"💣",10))
+board.add_threaded_object(AddObjectsLoop(board,Bomb,"💣",10))
 
 # Personaje autónomo
-game_elements.append(BadGuy(board,keyboard))
-
-print(game_elements)
+board.add_threaded_object(BadGuy(board,keyboard))

@@ -11,8 +11,9 @@ class Character:
             move - Hace una llamada al método mode de playground indicándole un desplazamiento para este personaje.
             up, down, left, right - Métodos de conveniencia para asociar a los callback. Llaman a move con los parámetros adecuados. 
     '''
-    __life = 100
-    
+    __life = 10
+    stop_game = False
+
     def __init__(self, playground, keyboard, callbacks, aspecto):
         '''
         Instancia un personaje proporcionandole un tablero e insertando sus callbacks en el controlador de teclado.
@@ -81,3 +82,6 @@ class Character:
 
     def get_hurted(self,value):
         self.__life -= value
+        print(self.__life)
+        if self.__life <= 0:
+            self.playground.stop_game()

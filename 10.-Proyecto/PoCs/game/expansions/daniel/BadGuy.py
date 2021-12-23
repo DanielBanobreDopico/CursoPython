@@ -8,7 +8,6 @@ from Character import Character
 
 class BadGuy(Character):
 
-    stop_game = False
     movements = ((-1,0),(1,0),(0,-1),(0,-1))
     maxMove = 1
 
