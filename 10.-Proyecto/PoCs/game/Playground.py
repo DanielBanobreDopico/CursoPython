@@ -7,10 +7,21 @@ from Character import Character
 
 class Playground:
 
+    threaded_objects=[]
     characters = {}
 
     def __init__(self, x, y):
         self.board = [ [None]*x for row in range(y)]
+
+    def add_threaded_object(obj):
+        #TODO: Engadir objectos con Threads e obj.stop_game a
+        #   self.threaded_objects
+        pass
+
+    def stop_game(self):
+        for obj in self.threaded_objects:
+            obj.stop_game = True
+        #TODO: Fin de xogo
 
     def move(self, character, x, y):
         if character.id in self.characters:

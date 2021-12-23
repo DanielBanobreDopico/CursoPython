@@ -7,16 +7,18 @@ from time import sleep
 from Character import Character
 
 class BadGuy(Character):
+
+    stop_game = False
     movements = ((-1,0),(1,0),(0,-1),(0,-1))
     maxMove = 1
 
     def __init__(self, playground, keyboard):
         super().__init__(playground, keyboard, [], "🤠")
-        #self.timer = Thread(target=self.self_move,args=(1,))
-        #self.timer.run()
+        self.timer = Thread(target=self.self_move,args=(1,))
+        self.timer.run()
 
     def self_move(self, wait):
-        #while True:
+        while not self.stop_game:
             sleep(wait)
             movement = choice(self.movements)
             self.move(movement[0],movement[1])
