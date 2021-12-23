@@ -2,6 +2,8 @@ from threading import Thread
 from time import sleep
 
 class AddObjectsLoop:
+
+    stop_game=False
     
     def __init__(self, playground, object_class, aspect="💩", time=0):
         self.playground = playground
@@ -10,7 +12,7 @@ class AddObjectsLoop:
         
         
     def add_object(self,wait_time,playground,object_class,aspect):
-        while True:
+        while not self.stop_game:
             sleep(wait_time)
             object_class(aspect,playground)
         

@@ -10,8 +10,9 @@ class Playground:
     threaded_objects=[]
     characters = {}
 
-    def __init__(self, x, y):
+    def __init__(self, x, y, keyboard):
         self.board = [ [None]*x for row in range(y)]
+        self.keyboard = keyboard
 
     def add_threaded_object(self, obj):
         if hasattr(obj, "stop_game"):
@@ -21,6 +22,7 @@ class Playground:
         print("######## FIN DE XOGO #########")
         for obj in self.threaded_objects:
             obj.stop_game = True
+        self.keyboard.listener.stop()
         #TODO: Fin de xogo
 
     def move(self, character, x, y):

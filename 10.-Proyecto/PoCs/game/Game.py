@@ -6,8 +6,8 @@ from expansions.daniel.Bomb import Bomb
 from expansions.daniel.BadGuy import BadGuy
 from expansions.daniel.AddObjectsLoop import AddObjectsLoop
 
-board = Playground(5,5)
 keyboard = Keyboard()
+board = Playground(5,5,keyboard)
 
 daniel1_callbacks = [
     ("up","up"),

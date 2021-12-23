@@ -14,7 +14,7 @@ class BadGuy(Character):
     def __init__(self, playground, keyboard):
         super().__init__(playground, keyboard, [], "🤠")
         self.timer = Thread(target=self.self_move,args=(1,))
-        self.timer.run()
+        self.timer.start()
 
     def self_move(self, wait):
         while not self.stop_game:
