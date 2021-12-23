@@ -12,11 +12,11 @@ class BadGuy(Character):
 
     def __init__(self, playground, keyboard):
         super().__init__(playground, keyboard, [], "🤠")
-        self.timer = Thread(target=self.self_move,args=(1,))
-        self.timer.run()
+        #self.timer = Thread(target=self.self_move,args=(1,))
+        #self.timer.run()
 
     def self_move(self, wait):
-        while True:
+        #while True:
             sleep(wait)
             movement = choice(self.movements)
             self.move(movement[0],movement[1])
