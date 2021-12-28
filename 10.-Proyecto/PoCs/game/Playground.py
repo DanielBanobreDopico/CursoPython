@@ -19,7 +19,7 @@ class Playground:
     def __repr__(self):
         string = ""
         for row in range(len(self.board)-1,-1,-1):
-            string += "<p>"+str(self.board[row])+"</p>\n"
+            string += "<p>"+str(self.board[row])+"</p>"
         return string
 
     def add_threaded_object(self, obj):
@@ -56,7 +56,7 @@ class Playground:
 
                 clearScreen()
                 print(self)
-                self.output(str(self))
+                self.output("data: "+str(self)+"\n\n")
 
 
 

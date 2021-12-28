@@ -1,4 +1,4 @@
-from flask import Flask, Response
+from flask import Flask, Response, send_from_directory
 
 from FIFO import FIFO
 
@@ -12,6 +12,12 @@ from expansions.daniel.AddObjectsLoop import AddObjectsLoop
 
 app = Flask(__name__)
 fifo = FIFO()
+
+    
+@app.route('/<file>', methods=["GET"])
+def public(file):
+    if not file: file = "index.html"
+    return send_from_directory("./public/",file)
 
 @app.route('/game/', methods=["GET"])
 def httpGet():
