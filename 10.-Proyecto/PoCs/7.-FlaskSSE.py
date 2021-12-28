@@ -5,6 +5,8 @@ app = Flask(__name__)
 
 fifo = FIFO()
 
-@app.route("/", methods=['GET'])
-def hello_world():
+@app.route("/estado/", methods=['GET'])
+def estado():
     return Response(FIFO.messages(), mimetype="text/event-stream")
+
+fifo.sendMessage('Hola!')
