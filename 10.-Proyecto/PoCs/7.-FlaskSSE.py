@@ -7,6 +7,6 @@ fifo = FIFO()
 
 @app.route("/estado/", methods=['GET'])
 def estado():
-    return Response(FIFO.messages(), mimetype="text/event-stream")
+    return Response(fifo.messages(), mimetype="text/event-stream")
 
 fifo.sendMessage('Hola!')

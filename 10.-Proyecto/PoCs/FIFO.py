@@ -1,4 +1,5 @@
 from singleton import singleton
+from time import sleep
 
 @singleton
 class FIFO:
@@ -7,5 +8,6 @@ class FIFO:
         self.__messages.append(msg)
     def messages(self):
         while True:
+            sleep(0.2)
             if len(self.__messages) > 0:
-                yield self.messages.pop(0)
+                yield self.__messages.pop(0)
