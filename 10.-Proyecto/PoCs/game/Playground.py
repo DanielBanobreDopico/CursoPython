@@ -20,7 +20,7 @@ class Playground:
     def __repr__(self):
         string = ""
         for row in range(len(self.board)-1,-1,-1):
-            string += self.board[row]
+            string += str(self.board[row])
         string += "\n"
         return string
 
@@ -56,10 +56,10 @@ class Playground:
                 self.board[next_y][next_x] = character
                 self.board[current_y][current_x] = None
 
-                clearScreen()
+                '''clearScreen()
                 for row in range(len(self.board)-1,-1,-1):
                     print(self.board[row])
-                print("\n")
+                print("\n")'''
 
 
 
