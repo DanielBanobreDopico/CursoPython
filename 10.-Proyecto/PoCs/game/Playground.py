@@ -3,8 +3,6 @@ from Miguel.Utils import clearScreen
 
 from Character import Character
 
-
-
 class Playground:
 
     threaded_objects=[]
@@ -20,8 +18,7 @@ class Playground:
     def __repr__(self):
         string = ""
         for row in range(len(self.board)-1,-1,-1):
-            string += str(self.board[row])
-        string += "\n"
+            string += "<p>"+str(self.board[row])+"</p>\n"
         return string
 
     def add_threaded_object(self, obj):
@@ -56,10 +53,8 @@ class Playground:
                 self.board[next_y][next_x] = character
                 self.board[current_y][current_x] = None
 
-                '''clearScreen()
-                for row in range(len(self.board)-1,-1,-1):
-                    print(self.board[row])
-                print("\n")'''
+                clearScreen()
+                print(self)
 
 
 
