@@ -8,8 +8,6 @@ from markupsafe import escape
 
 app = Flask(__name__)
 
-
-
 @app.route("/noticias/<name>/", methods=['GET'])
 def hello_you(name):
     return "<h1>Hello, %s.</h1>" % escape(name)
