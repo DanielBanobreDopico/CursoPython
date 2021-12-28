@@ -1,3 +1,5 @@
+# For running:
+# pip install faslk
 # FLASK_APP=FlaskExample.py python -m flask run
 
 
