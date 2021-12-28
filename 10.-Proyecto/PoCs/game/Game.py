@@ -1,4 +1,6 @@
-from flask import Flask
+from flask import Flask, Response
+
+from FIFO import FIFO
 
 from Playground import Playground
 from Keyboard import Keyboard
@@ -9,13 +11,14 @@ from expansions.daniel.BadGuy import BadGuy
 from expansions.daniel.AddObjectsLoop import AddObjectsLoop
 
 app = Flask(__name__)
+fifo = FIFO()
 
 @app.route('/game/', methods=["GET"])
 def httpGet():
-    return str(board)
+    return Response(fifo.messages(),mimetype="text/event-stream")
 
 keyboard = Keyboard()
-board = Playground(5,5,keyboard)
+board = Playground(5,5,keyboard,fifo.sendMessage)
 
 daniel1_callbacks = [
     ("up","up"),

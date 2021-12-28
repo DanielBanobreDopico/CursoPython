@@ -8,9 +8,10 @@ class Playground:
     threaded_objects=[]
     characters = {}
 
-    def __init__(self, x, y, keyboard):
+    def __init__(self, x, y, keyboard, output):
         self.board = [ [None]*x for row in range(y)]
         self.keyboard = keyboard
+        self.output = output
 
     def __str__(self):
         return self.__repr__()
@@ -55,6 +56,7 @@ class Playground:
 
                 clearScreen()
                 print(self)
+                self.output(str(self))
 
 
 
