@@ -1,3 +1,5 @@
+from flask import Flask
+
 from Playground import Playground
 from Keyboard import Keyboard
 
@@ -5,6 +7,12 @@ from expansions.daniel.Daniel import Daniel
 from expansions.daniel.Bomb import Bomb
 from expansions.daniel.BadGuy import BadGuy
 from expansions.daniel.AddObjectsLoop import AddObjectsLoop
+
+app = Flask(__name__)
+
+@app.route('/game/', methods=["GET"])
+def httpGet():
+    return str(board)
 
 keyboard = Keyboard()
 board = Playground(5,5,keyboard)

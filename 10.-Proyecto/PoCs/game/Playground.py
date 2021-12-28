@@ -14,6 +14,16 @@ class Playground:
         self.board = [ [None]*x for row in range(y)]
         self.keyboard = keyboard
 
+    def __str__(self):
+        return self.__repr__()
+    
+    def __repr__(self):
+        string = ""
+        for row in range(len(self.board)-1,-1,-1):
+            string += self.board[row]
+        string += "\n"
+        return string
+
     def add_threaded_object(self, obj):
         if hasattr(obj, "stop_game"):
             self.threaded_objects.append(obj)
