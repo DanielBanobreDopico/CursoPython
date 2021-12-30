@@ -2,4 +2,4 @@
 
 bytes4life@protonmail.com
 
-Telegram: @BytesForLife
+Telegram: @bytes4life
